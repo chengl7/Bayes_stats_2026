@@ -1,0 +1,302 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<title>Time estimation · Bayesian statistics · Aalborg University</title>
+<style>
+:root { --ink:#172d42; --muted:#526578; --teal:#137c83; --line:#dce5eb; --paper:#fff; --wash:#f3f7f8; --soft:#e5f3f2; }
+* { box-sizing:border-box; }
+body { margin:0; background:var(--wash); color:var(--ink); font:16px/1.55 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; }
+button,select { font:inherit; }
+button,select { touch-action:manipulation; }
+button:focus-visible,select:focus-visible { outline:3px solid #ddac24; outline-offset:4px; }
+[hidden] { display:none!important; }
+.shell { max-width:1040px; margin:auto; padding:36px 24px 48px; }
+header { display:flex; justify-content:space-between; align-items:flex-start; gap:24px; margin-bottom:26px; }
+.eyebrow { margin:0 0 8px; color:var(--teal); font-size:12px; font-weight:750; letter-spacing:.13em; text-transform:uppercase; }
+h1 { margin:0 0 10px; font-size:clamp(29px,4vw,43px); line-height:1.14; letter-spacing:-.035em; }
+h2 { margin:0 0 12px; font-size:22px; line-height:1.25; }
+p { margin:0 0 12px; }
+.sub { color:var(--muted); max-width:680px; }
+.tag { border:1px solid var(--line); border-radius:20px; background:#fff; padding:6px 12px; white-space:nowrap; font-size:13px; }
+.panel { padding:28px; background:var(--paper); border:1px solid var(--line); border-radius:18px; box-shadow:0 6px 24px #172d4205; }
+.form-grid { display:grid; grid-template-columns:1fr 1fr; gap:20px; margin:24px 0; }
+label { display:block; font-weight:650; margin-bottom:8px; }
+select { width:100%; padding:12px 14px; border:1px solid #a9bac5; border-radius:9px; color:var(--ink); background:white; min-height:48px; }
+select:disabled { background:var(--wash); color:var(--muted); }
+button { border:0; border-radius:10px; min-height:46px; padding:12px 20px; cursor:pointer; font-weight:650; }
+.primary { background:var(--teal); color:white; }
+.primary:hover { background:#096970; }
+button:disabled { opacity:.45; cursor:default; }
+.secondary { background:#eef2f5; color:var(--ink); border:1px solid var(--line); }
+.small { font-size:14px; color:var(--muted); }
+.steps { margin:14px 0 0; padding-left:23px; color:var(--muted); }
+.steps li { margin-bottom:6px; }
+.session { display:flex; align-items:center; justify-content:space-between; gap:16px; margin-bottom:20px; flex-wrap:wrap; }
+.identity { font-weight:700; }
+.identity span { display:inline-block; padding:5px 12px; border-radius:8px; background:white; border:1px solid var(--line); margin-right:6px; }
+.total { color:var(--muted); font-size:14px; }
+.sections { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-bottom:20px; }
+.section-card { border:1px solid var(--line); border-radius:14px; padding:17px; background:white; }
+.section-card.active { border:2px solid var(--teal); padding:16px; }
+.section-card.done { background:var(--soft); }
+.section-head { display:flex; align-items:baseline; justify-content:space-between; gap:8px; }
+.target-small { font-size:23px; font-weight:750; letter-spacing:-.03em; }
+.section-count { font-size:12px; color:var(--muted); }
+.section-state { font-size:12px; color:var(--muted); margin:6px 0 12px; }
+.trial-grid { display:grid; grid-template-columns:repeat(5,1fr); gap:6px; }
+.trial-mark { display:flex; align-items:center; justify-content:center; min-height:29px; border-radius:5px; border:1px solid var(--line); font-size:12px; color:var(--muted); background:#f7f9fb; }
+.trial-mark.collected { color:#146362; background:#cce8e4; border-color:#b5d9d3; font-weight:700; }
+.trial-mark.current { background:white; border:2px solid var(--teal); color:var(--teal); font-weight:700; }
+.experiment { text-align:center; padding:35px 24px; }
+.target-main { font-size:clamp(43px,8vw,67px); font-weight:750; line-height:1.1; letter-spacing:-.045em; margin:8px 0 10px; }
+.target-main small { font-size:.42em; letter-spacing:0; font-weight:500; }
+.trial-label { color:var(--muted); margin-bottom:24px; }
+.trial-button { width:min(100%,440px); min-height:110px; font-size:29px; border-radius:16px; background:var(--teal); color:white; box-shadow:0 5px 0 #085f66; user-select:none; }
+.trial-button.running { background:var(--ink); box-shadow:0 5px 0 #0a1926; }
+.trial-button:active { transform:translateY(2px); box-shadow:0 3px 0 #085f66; }
+.status { min-height:28px; margin:22px 0 4px; font-weight:650; color:var(--teal); }
+.status.notice { color:#7b5b13; }
+.after { margin-top:20px; text-align:center; }
+.complete { text-align:center; padding:40px 28px; }
+.complete-icon { font-size:27px; border-radius:50%; width:57px; height:57px; display:grid; place-items:center; background:var(--soft); color:var(--teal); margin:0 auto 16px; }
+.filename { font-family:ui-monospace,SFMono-Regular,Consolas,monospace; color:var(--ink); padding:8px 14px; background:var(--wash); border-radius:8px; display:inline-block; margin:8px 0 18px; }
+footer { font-size:13px; color:var(--muted); margin-top:24px; text-align:center; }
+#storage-warning { border:1px solid #e4d5a6; border-radius:10px; padding:12px 16px; color:#715514; background:#fff9e9; margin-bottom:20px; }
+@media (max-width:740px) { .sections { grid-template-columns:repeat(2,1fr); } header .tag { display:none; } .shell { padding:24px 16px 36px; } .panel { padding:22px; } }
+@media (max-width:460px) { .form-grid { grid-template-columns:1fr; gap:16px; } .trial-button { min-height:100px; font-size:25px; } .section-card { padding:12px; } .section-card.active { padding:11px; } }
+
+.performance { margin:20px auto 0; max-width:600px; padding:22px; text-align:center; }
+.performance h2 { font-size:19px; }
+.performance-track { position:relative; height:28px; margin:20px 10px 10px; border:1px solid #aebcc9; border-radius:8px; background:linear-gradient(to right,#2166ac 0%,#a9cbea 25%,#fff 50%,#efaaa7 75%,#b2182b 100%); }
+.performance-center { position:absolute; top:0; bottom:0; left:50%; border-left:1px dashed #465566; }
+.performance-marker { position:absolute; left:50%; top:-8px; bottom:-8px; width:4px; border-radius:3px; background:#172d42; transform:translateX(-50%); }
+.performance-labels { display:flex; justify-content:space-between; gap:8px; font-size:12px; color:var(--muted); }
+.performance-labels span { flex:1; }
+.performance-labels span:first-child { text-align:left; } .performance-labels span:last-child { text-align:right; }
+</style>
+</head>
+<body>
+<div class="shell">
+<header><div><p class="eyebrow">Aalborg University · Bayesian statistics · Day 1</p><h1>How long does it feel?</h1><p class="sub">Estimate three durations. Collect ten attempts at each target, using the same button to start and stop.</p></div><div class="tag">30 trials · 3 sections</div></header>
+<div id="storage-warning" role="status" hidden>This browser cannot keep a local draft. Keep this page open until all 30 trials are complete and download your CSV.</div>
+<noscript><div class="panel">Enable JavaScript in your browser to collect the timing data.</div></noscript>
+<main>
+<section id="setup" class="panel" aria-labelledby="setup-title">
+<h2 id="setup-title">Choose your participant ID</h2><p class="sub">Use the group and participant number assigned by your instructor. No name is needed.</p>
+<form id="setup-form">
+<div class="form-grid"><div><label for="group">Group</label><select id="group" required><option value="">Select your group</option></select></div><div><label for="participant">Participant within group</label><select id="participant" required disabled><option value="">Select your participant ID</option></select></div></div>
+<button id="begin" class="primary" type="submit" disabled>Begin experiment</button>
+</form>
+<ol class="steps"><li>The sections are 5, 10 and 15 seconds, with ten trials each.</li><li>Click <strong>Start</strong>, estimate the target duration without a clock, then click the same button to <strong>Stop</strong>.</li><li>Each stop records your attempt. Your measured time stays hidden throughout the experiment.</li><li>After all 30 trials, download the CSV and submit it as instructed.</li></ol>
+</section>
+<section id="collection" aria-label="Timing experiment" hidden>
+<div class="session"><div class="identity"><span id="group-label"></span><span id="participant-label"></span></div><div class="total" id="total">0 / 30 trials collected</div></div>
+<div class="sections" id="sections" aria-label="Experiment sections"></div>
+<div id="trial-panel" class="panel experiment">
+<p class="eyebrow">Your target duration</p><div class="target-main"><span id="target"></span> <small>seconds</small></div><p id="trial-label" class="trial-label"></p>
+<button id="trial-button" class="trial-button" type="button">Start</button>
+<p class="status" id="status" role="status" aria-live="polite">Ready when you are.</p>
+<p class="small">Keep the pointer on the button. A click starts the trial; the next click stops it.<br>You can also use Space when the button is focused.</p>
+</div>
+<div id="complete-panel" class="panel complete" hidden><div class="complete-icon" aria-hidden="true">✓</div><h2>All 30 trials collected</h2><p>Your measured times are included in the CSV, without being displayed here.</p><div class="filename" id="filename"></div><div><button id="download" class="primary" type="button">Download CSV again</button></div><p class="small" id="download-status" role="status" style="margin-top:16px"></p><p class="small">Keep the file and submit it using the instructor’s announced route.</p></div>
+<div id="performance" class="panel performance" hidden>
+<h2>Your performance</h2><p id="performance-trial" class="small"></p>
+<div class="performance-track" id="performance-track" role="img"><span class="performance-center" aria-hidden="true"></span><span id="performance-marker" class="performance-marker" aria-hidden="true"></span></div>
+<div class="performance-labels"><span>Blue · shorter</span><span>White · correct</span><span>Red · longer</span></div>
+<p id="performance-result" role="status" style="margin-top:14px;margin-bottom:0;font-weight:650"></p>
+</div>
+<div class="after"><button id="new-session" class="secondary" type="button">Start a new session</button></div>
+</section>
+</main>
+<footer>Measurements stay in this browser until you download them. This page does not upload data.</footer>
+</div>
+<script>
+'use strict';
+// Change GROUP_COUNT or PARTICIPANTS_PER_GROUP to change the available IDs.
+const GROUP_COUNT = 10;
+const PARTICIPANTS_PER_GROUP = 50;
+const TARGETS = Object.freeze([5, 10, 15]);
+const TRIALS_PER_SECTION = 10;
+const TOTAL_TRIALS = TARGETS.length * TRIALS_PER_SECTION;
+const FEEDBACK = false;
+const STORAGE_KEY = 'aalborg-bayes-2026-timing-v2-' + (FEEDBACK ? 'feedback' : 'no-feedback');
+const $ = id => document.getElementById(id);
+let session = null;
+let startedAt = null;
+let storageAvailable = true;
+
+for (let i = 1; i <= GROUP_COUNT; i++) {
+  $('group').add(new Option('Group ' + i, 'G' + i));
+}
+for (let i = 1; i <= PARTICIPANTS_PER_GROUP; i++) {
+  const id = 'P' + String(i).padStart(2, '0');
+  $('participant').add(new Option(id, id));
+}
+function isValidIdentity(group, participant) {
+  return /^G[1-9]\d*$/.test(group) && Number(group.slice(1)) <= GROUP_COUNT && /^P\d{2,}$/.test(participant)
+    && Number(participant.slice(1)) >= 1 && Number(participant.slice(1)) <= PARTICIPANTS_PER_GROUP;
+}
+function validateSession(s) {
+  if (!s || s.version !== 1 || !isValidIdentity(s.group, s.participant) || !Array.isArray(s.rows) || s.rows.length > TOTAL_TRIALS) return false;
+  return s.rows.every((row, index) => row && row.target_seconds === TARGETS[Math.floor(index / TRIALS_PER_SECTION)]
+    && row.trial === index % TRIALS_PER_SECTION + 1
+    && Number.isFinite(row.elapsed_seconds) && row.elapsed_seconds > 0);
+}
+function persist() {
+  try { localStorage.setItem(STORAGE_KEY, JSON.stringify(session)); }
+  catch (_) { storageAvailable = false; $('storage-warning').hidden = false; }
+}
+function showStatus(text, notice = false) {
+  $('status').textContent = text;
+  $('status').classList.toggle('notice', notice);
+}
+function renderPerformance() {
+  const visible = FEEDBACK && session && session.rows.length > 0 && startedAt === null;
+  $('performance').hidden = !visible;
+  if (!visible) return;
+  const row = session.rows[session.rows.length - 1];
+  const error = (row.elapsed_seconds - row.target_seconds) / row.target_seconds;
+  // The centre is exact target; edges represent 100% below/above target.
+  const position = 50 + Math.max(-1, Math.min(1, error)) * 50;
+  $('performance-marker').style.left = position + '%';
+  const result = error < 0 ? 'Shorter than the target' : error > 0 ? 'Longer than the target' : 'On target';
+  $('performance-trial').textContent = row.target_seconds + '-second section · Trial ' + row.trial;
+  $('performance-result').textContent = result;
+  $('performance-track').setAttribute('aria-label', result + '. Blue on the left means shorter, white in the centre means correct, and red on the right means longer.');
+}
+function render() {
+  renderPerformance();
+  $('setup').hidden = !!session;
+  $('collection').hidden = !session;
+  if (!session) return;
+  const completed = session.rows.length;
+  const currentSection = Math.floor(completed / TRIALS_PER_SECTION);
+  const finished = completed === TOTAL_TRIALS;
+  $('group-label').textContent = 'Group ' + session.group.slice(1);
+  $('participant-label').textContent = 'Participant ' + session.participant;
+  $('total').textContent = completed + ' / ' + TOTAL_TRIALS + ' trials collected';
+  $('sections').replaceChildren();
+  TARGETS.forEach((target, section) => {
+    const n = Math.max(0, Math.min(TRIALS_PER_SECTION, completed - section * TRIALS_PER_SECTION));
+    const active = !finished && section === currentSection;
+    const card = document.createElement('div');
+    card.className = 'section-card' + (active ? ' active' : '') + (n === TRIALS_PER_SECTION ? ' done' : '');
+    const head = document.createElement('div'); head.className = 'section-head';
+    const heading = document.createElement('span'); heading.className = 'target-small'; heading.textContent = target + ' s';
+    const count = document.createElement('span'); count.className = 'section-count'; count.textContent = n + ' / 10';
+    head.append(heading, count);
+    const state = document.createElement('p'); state.className = 'section-state';
+    state.textContent = n === TRIALS_PER_SECTION ? 'Complete' : active ? (startedAt === null ? 'Current section' : 'Trial in progress') : 'Coming next';
+    const grid = document.createElement('div'); grid.className = 'trial-grid';
+    for (let i = 0; i < TRIALS_PER_SECTION; i++) {
+      const mark = document.createElement('span');
+      mark.className = 'trial-mark' + (i < n ? ' collected' : active && i === n ? ' current' : '');
+      mark.textContent = String(i + 1);
+      mark.setAttribute('aria-label', 'Trial ' + (i+1) + ': ' + (i < n ? 'collected' : active && i === n ? 'current' : 'not collected'));
+      grid.append(mark);
+    }
+    card.append(head, state, grid); $('sections').append(card);
+  });
+  $('trial-panel').hidden = finished;
+  $('complete-panel').hidden = !finished;
+  if (finished) {
+    $('filename').textContent = csvFilename();
+  } else {
+    $('target').textContent = TARGETS[currentSection];
+    $('trial-label').textContent = 'Section ' + (currentSection + 1) + ' of 3 · Trial ' + (completed % TRIALS_PER_SECTION + 1) + ' of 10';
+    $('trial-button').textContent = startedAt === null ? 'Start' : 'Stop';
+    $('trial-button').classList.toggle('running', startedAt !== null);
+  }
+}
+function csvFilename() { return session.group + '_' + session.participant + '.csv'; }
+function makeCSV() {
+  // group and globally unique participant keep the existing R notebooks compatible.
+  const separator = ',';
+  const header = ['group_id','participant_id','group','participant','trial','target_seconds','elapsed_seconds','elapsed_milliseconds','feedback_condition'];
+  const lines = session.rows.map(row => {
+    const seconds = row.elapsed_seconds.toFixed(3);
+    return [session.group, session.participant, session.group, session.group + session.participant,
+      row.trial, row.target_seconds, seconds,
+      Math.round(row.elapsed_seconds * 1000), FEEDBACK ? 'feedback' : 'no_feedback'].join(separator);
+  });
+  return header.join(separator) + '\r\n' + lines.join('\r\n') + '\r\n';
+}
+function downloadCSV(automatic = false) {
+  if (!session || session.rows.length !== TOTAL_TRIALS) return;
+  const url = URL.createObjectURL(new Blob([makeCSV()], {type:'text/csv;charset=utf-8'}));
+  const a = document.createElement('a'); a.href = url; a.download = csvFilename();
+  document.body.append(a); a.click(); a.remove();
+  setTimeout(() => URL.revokeObjectURL(url), 60000);
+  $('download-status').textContent = automatic
+    ? 'CSV download requested. Check your browser’s Downloads. If it did not start, use the button above.'
+    : 'CSV download requested. Check your browser’s Downloads.';
+}
+function stopInterruptedTrial() {
+  if (startedAt === null) return;
+  startedAt = null; render();
+  showStatus('This trial was interrupted and was not recorded. Start the same trial again.', true);
+}
+$('group').addEventListener('change', () => {
+  $('participant').disabled = !$('group').value;
+  $('participant').value = '';
+  $('begin').disabled = true;
+});
+$('participant').addEventListener('change', () => {
+  $('begin').disabled = !isValidIdentity($('group').value, $('participant').value);
+});
+$('setup-form').addEventListener('submit', event => {
+  event.preventDefault();
+  if (!isValidIdentity($('group').value, $('participant').value)) return;
+  session = {version:1, group:$('group').value, participant:$('participant').value, rows:[]};
+  startedAt = null; persist(); render(); showStatus('Ready when you are.'); $('trial-button').focus();
+});
+$('trial-button').addEventListener('click', () => {
+  if (!session || session.rows.length >= TOTAL_TRIALS) return;
+  if (startedAt === null) {
+    startedAt = performance.now(); render(); showStatus('Trial in progress. Click Stop when the target duration feels complete.');
+  } else {
+    const elapsed = (performance.now() - startedAt) / 1000;
+    startedAt = null;
+    if (!Number.isFinite(elapsed) || elapsed <= 0) { render(); showStatus('The trial could not be recorded. Please try again.', true); return; }
+    const index = session.rows.length;
+    const seconds = Math.round(elapsed * 1000) / 1000;
+    if (seconds <= 0) { render(); showStatus("The clicks were too close together to measure. Start this trial again.", true); return; }
+    session.rows.push({trial:index % TRIALS_PER_SECTION + 1, target_seconds:TARGETS[Math.floor(index / TRIALS_PER_SECTION)], elapsed_seconds:seconds});
+    persist(); render();
+    if (session.rows.length === TOTAL_TRIALS) { downloadCSV(true); $('download').focus(); }
+    else showStatus(FEEDBACK ? 'Data collected. See your performance below, then start the next trial when ready.' : 'Data collected. Your measured time is hidden. Start the next trial when you are ready.');
+  }
+});
+$('download').addEventListener('click', () => downloadCSV());
+$('new-session').addEventListener('click', () => {
+  if (!confirm('Start a new session? This clears the collected trials from this page. If you have completed all 30 trials, download your CSV first.')) return;
+  startedAt = null; session = null;
+  try { localStorage.removeItem(STORAGE_KEY); } catch (_) {}
+  $('group').value = ''; $('participant').value = ''; $('participant').disabled = true; $('begin').disabled = true;
+  $('download-status').textContent = ''; render(); $('group').focus();
+});
+document.addEventListener('visibilitychange', () => { if (document.hidden) stopInterruptedTrial(); });
+window.addEventListener('pagehide', stopInterruptedTrial);
+window.addEventListener('beforeunload', event => {
+  if (startedAt !== null || (!storageAvailable && session && session.rows.length > 0 && session.rows.length < TOTAL_TRIALS)) {
+    event.preventDefault(); event.returnValue = '';
+  }
+});
+try {
+  const raw = localStorage.getItem(STORAGE_KEY);
+  if (raw) {
+    const recovered = JSON.parse(raw);
+    if (validateSession(recovered)) {
+      session = recovered; render();
+      if (session.rows.length === TOTAL_TRIALS) $('download-status').textContent = 'Completed session restored. Use Download CSV again to save your file.';
+      else showStatus(FEEDBACK ? 'Your collected trials were restored. Your latest performance is shown below.' : 'Your collected trials were restored. Continue with the next trial; measured times remain hidden.');
+    } else localStorage.removeItem(STORAGE_KEY);
+  }
+} catch (_) { storageAvailable = false; $('storage-warning').hidden = false; }
+render();
+</script>
+</body>
+</html>

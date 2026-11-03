@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bayesian Statistics for PhD Researchers · AAU 2026</title>
+<meta name="description" content="Course page for the 5 ECTS PhD course Bayesian statistics for PhD researchers, Aalborg University, 9–17 November 2026.">
+<style>
+:root {
+  --ink: #1C2B3A; --text: #3A4452; --muted: #5F6875; --paper: #F6F4EE; --card: #FFFDF8;
+  --line: #DAD6CC; --accent: #B24A2E; --teal: #2C6E8F; --band: #EFE7DA;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--paper); color: var(--text); font: 17px/1.6 "Helvetica Neue", Arial, sans-serif; }
+a { color: var(--teal); }
+a:hover { color: var(--accent); }
+header { background: var(--ink); color: #DCE4EA; padding: 56px 16px 48px; }
+.wrap { max-width: 1040px; margin: 0 auto; padding: 0 16px; }
+header .wrap { padding: 0; }
+.eyebrow { font-size: 13px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: #F0A58A; margin: 0 0 12px; }
+h1 { font-family: Georgia, "Times New Roman", serif; font-weight: 600; color: #F6F4EE; font-size: clamp(34px, 6vw, 56px); line-height: 1.1; margin: 0 0 16px; }
+header p.lead { font-size: 19px; max-width: 760px; margin: 0 0 24px; }
+.facts { display: flex; flex-wrap: wrap; gap: 10px; margin: 0; padding: 0; list-style: none; }
+.facts li { background: #26384A; border-radius: 999px; padding: 6px 14px; font-size: 15px; }
+nav { background: var(--card); border-bottom: 1px solid var(--line); position: sticky; top: 0; z-index: 2; }
+nav .wrap { display: flex; flex-wrap: wrap; gap: 4px 20px; padding-top: 10px; padding-bottom: 10px; font-size: 15px; }
+nav a { text-decoration: none; color: var(--ink); font-weight: 600; }
+section { padding: 44px 0 8px; }
+h2 { font-family: Georgia, "Times New Roman", serif; font-weight: 600; color: var(--ink); font-size: 30px; margin: 0 0 16px; }
+h3 { color: var(--ink); font-size: 19px; margin: 0 0 8px; }
+.grid { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+.card { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 20px 22px; }
+.card.dark { background: var(--ink); border-color: var(--ink); color: #DCE4EA; }
+.card.dark h3 { color: #F6F4EE; }
+.card.dark a { color: #F0C7B8; }
+.card ul { margin: 8px 0 0; padding-left: 20px; }
+.card li { margin: 3px 0; }
+.tag { display: inline-block; font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); margin-bottom: 4px; }
+.table-wrap { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; background: var(--card); border: 1px solid var(--line); border-radius: 12px; font-size: 16px; }
+th, td { text-align: left; padding: 9px 14px; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { color: var(--ink); background: #EEEBE3; }
+tr.hl td { background: var(--band); }
+tr:last-child td { border-bottom: none; }
+.day { display: grid; grid-template-columns: 120px 1fr; gap: 0 20px; background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 20px 22px; margin-bottom: 14px; }
+.day .when { font-family: Georgia, serif; color: var(--accent); font-size: 26px; font-weight: 600; line-height: 1.1; }
+.day .when small { display: block; font-family: "Helvetica Neue", Arial, sans-serif; font-size: 14px; color: var(--muted); font-weight: 400; margin-top: 6px; }
+.links { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; padding: 0; list-style: none; }
+.links a { display: inline-block; background: var(--paper); border: 1px solid var(--line); border-radius: 8px; padding: 4px 10px; font-size: 15px; text-decoration: none; }
+.links a.main { background: var(--teal); border-color: var(--teal); color: #fff; }
+.links a.main:hover { background: var(--accent); border-color: var(--accent); }
+.note { color: var(--muted); font-size: 15px; }
+footer { margin-top: 48px; padding: 28px 0 40px; border-top: 1px solid var(--line); color: var(--muted); font-size: 15px; }
+@media (max-width: 640px) {
+  .day { grid-template-columns: 1fr; }
+  .day .when { margin-bottom: 8px; }
+  .day .when small { display: inline; margin-left: 8px; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <p class="eyebrow">PhD course · Aalborg University · 2026</p>
+    <h1>Bayesian Statistics for PhD Researchers</h1>
+    <p class="lead">Learn Bayesian reasoning well enough to apply it, in Stan, to a problem from your own research.</p>
+    <p style="margin:0 0 20px;color:#F6F4EE;font-weight:600">Lu Cheng and Ege Rubak · Department of Mathematical Sciences, Aalborg University</p>
+    <ul class="facts">
+      <li>9–17 November 2026</li>
+      <li>6 days · 08:45–16:00</li>
+      <li>5 ECTS</li>
+      <li>R + Stan in JupyterLab</li>
+    </ul>
+  </div>
+</header>
+
+<nav aria-label="Sections">
+  <div class="wrap">
+    <a href="#before">Before Day 1</a>
+    <a href="#days">Days and materials</a>
+    <a href="#timetable">A course day</a>
+    <a href="#grading">Grading</a>
+    <a href="#final">Final assignment</a>
+    <a href="#absence">Absence</a>
+  </div>
+</nav>
+
+<main class="wrap">
+
+<section id="before">
+  <h2>Before Day 1</h2>
+  <div class="grid">
+    <div class="card dark">
+      <span class="tag" style="color:#F0A58A">Step 1 · 30–60 min</span>
+      <h3>Install the software</h3>
+      <p>One conda environment, <code>bayes</code>, with R, CmdStan, the tidyverse and JupyterLab. Not required before Day 1, but trying it at home saves class time.</p>
+      <ul>
+        <li><a href="installations.html">Installation guide</a></li>
+        <li><a href="course-logistics-and-setup.pdf">Course logistics and setup slides</a> (PDF)</li>
+      </ul>
+    </div>
+    <div class="card">
+      <span class="tag">Step 2 · self-paced</span>
+      <h3>Pre-course refresher</h3>
+      <p>One self-paced notebook on R, probability, a little calculus and simulation, with worked solutions. Not graded.</p>
+      <ul class="links">
+        <li><a class="main" href="pre-course-refresher.zip">Download the refresher (.zip)</a></li>
+        <li><a href="pre-course/">Read the overview</a></li>
+      </ul>
+    </div>
+    <div class="card">
+      <span class="tag">Every day</span>
+      <h3>Bring a charged laptop</h3>
+      <p>All work happens in JupyterLab notebooks with the <b>R (bayes)</b> kernel. Download each day’s student pack, unzip it, and keep the folder together.</p>
+      <p class="note">Stuck with the installation? Send the first error message and your operating system to <a href="mailto:luch@math.aau.dk">luch@math.aau.dk</a>.</p>
+    </div>
+  </div>
+</section>
+
+<section id="days">
+  <h2>Days and materials</h2>
+  <p class="note">Each student pack (.zip) contains everything for that day: notebooks, data and make-up instructions. Notebooks (.ipynb) download as files; open them in JupyterLab. Materials for each day are posted here before the day.</p>
+
+  <div class="day">
+    <div class="when">Day 1<small>Mon 9 Nov</small></div>
+    <div>
+      <h3>R, JupyterLab, probability and uncertainty</h3>
+      <p>Pontoppidanstræde 101, room 1.001. Morning: course logistics and getting everyone set up. Afternoon: random variables, PMF/PDF/CDF, a first Bayesian update, and your own timing data.</p>
+      <ul class="links">
+        <li><a class="main" href="day-1-student-pack.zip">Day 1 student pack</a></li>
+        <li><a href="day-1/day-1-slides-morning.pdf">Morning slides</a> (PDF)</li>
+        <li><a href="day-1/day-1-slides-afternoon.pdf">Afternoon slides</a> (PDF)</li>
+        <li><a href="day-1/day-1-exercises-morning.ipynb">Morning notebook</a></li>
+        <li><a href="day-1/day-1-exercises-afternoon.ipynb">Afternoon notebook</a></li>
+        <li><a href="day-1-data-collection.zip">Time games (.zip)</a></li>
+        <li><a href="day-1/extra/day-1-extra-exercises.ipynb">Extra exercises</a></li>
+        <li><a href="day-1/day-1-makeup.html">Make-up</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="day">
+    <div class="when">Day 2<small>Tue 10 Nov</small></div>
+    <div>
+      <h3>Bayesian updating and one-parameter models</h3>
+      <p>Kroghstræde 3, room 4.110; extra rooms for group work: 4.130 and 4.131. Likelihood, beta–binomial and gamma–Poisson updating, credible intervals and prediction.</p>
+      <p class="note">Materials will be posted here before the day.</p>
+    </div>
+  </div>
+
+  <div class="day">
+    <div class="when">Day 3<small>Thu 12 Nov</small></div>
+    <div>
+      <h3>Monte Carlo, MCMC and Stan</h3>
+      <p>Pontoppidanstræde 101, room 1.001. Simulation, the Metropolis algorithm, and your first Stan model with diagnostics.</p>
+      <p class="note">Materials will be posted here before the day.</p>
+    </div>
+  </div>
+
+  <div class="day">
+    <div class="when">Day 4<small>Fri 13 Nov</small></div>
+    <div>
+      <h3>Joint and hierarchical models</h3>
+      <p>Kroghstræde 3, <b>room 1.104</b> (not 4.110); extra rooms for group work: 4.129 and 5.149. Several unknown parameters, partial pooling and shrinkage.</p>
+      <p class="note">Materials will be posted here before the day.</p>
+    </div>
+  </div>
+
+  <div class="day">
+    <div class="when">Day 5<small>Mon 16 Nov</small></div>
+    <div>
+      <h3>Gaussian regression and model checking</h3>
+      <p>Pontoppidanstræde 101, room 1.001. Regression as a generative model, prior and posterior predictive checks.</p>
+      <p class="note">Materials will be posted here before the day.</p>
+    </div>
+  </div>
+
+  <div class="day">
+    <div class="when">Day 6<small>Tue 17 Nov</small></div>
+    <div>
+      <h3>Logistic regression and the modelling workflow</h3>
+      <p>Niels Jernes Vej 8A, <b>room 0.02</b> (new room); extra room for group work: 0.01. Logistic models, Simpson’s paradox and the full modelling workflow.</p>
+      <p class="note">Materials will be posted here before the day.</p>
+    </div>
+  </div>
+</section>
+
+<section id="timetable">
+  <h2>A course day</h2>
+  <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(320px,1fr));align-items:start">
+    <div class="table-wrap">
+      <table>
+        <tr><th>Time</th><th>Session</th></tr>
+        <tr><td>08:45–09:45</td><td>Lecture A</td></tr>
+        <tr><td>09:45–11:10</td><td>Exercise A, in your group</td></tr>
+        <tr class="hl"><td><b>11:10</b>–11:55</td><td><b>Peer review A</b>: everyone back in the room</td></tr>
+        <tr><td>11:55–12:30</td><td>Lunch</td></tr>
+        <tr><td>12:30–13:30</td><td>Lecture B</td></tr>
+        <tr><td>13:30–15:00</td><td>Exercise B, in your group</td></tr>
+        <tr class="hl"><td><b>15:00</b>–15:45</td><td><b>Peer review B</b>: everyone back in the room</td></tr>
+        <tr><td>15:45–16:00</td><td>Daily diary on Mentimeter</td></tr>
+      </table>
+      <p class="note">Day 1 only: Exercise A runs to 11:25 and Peer review A is 11:25–11:55.</p>
+    </div>
+    <div class="card">
+      <h3>How the days work</h3>
+      <ul>
+        <li><b>Ten fixed groups</b> of 6–7, mixed disciplines; roles rotate each block (coder, checker, question writers, interviewer, reporter).</li>
+        <li><b>No scheduled breaks</b>: pause during the exercise blocks when it suits your group, but be back at the fixed peer-review times.</li>
+        <li><b>Peer review</b>: during the exercises your group writes three questions with worked solutions; then you interview your partner group (1 ↔ 2, 3 ↔ 4, …) and they interview you.</li>
+        <li><b>Plenary</b>: two groups are drawn at random; one interviews the other in front of the class, then the lecturer takes up the hardest questions.</li>
+        <li><b>Daily diary</b>: on Mentimeter, three things you learned and three you are not yet familiar with.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="grading">
+  <h2>Grading</h2>
+  <div class="grid">
+    <div class="card"><span class="tag">50 %</span><h3>In-class activity</h3><p>Each group is scored 0–4 per day on how actively it works. Every member present gets the group’s score. Effort and thinking count, not being right.</p></div>
+    <div class="card"><span class="tag">50 %</span><h3>Final assignment</h3><p>Individual, after the course, scored out of 100.</p></div>
+    <div class="card dark"><span class="tag" style="color:#F0A58A">To pass</span><h3>70 % and 5 of 6 days</h3><p>A weighted total of at least 70 %, and attendance on at least five of the six days.</p></div>
+  </div>
+  <p><a href="grading.html">Full grading and attendance rules</a></p>
+</section>
+
+<section id="final">
+  <h2>Final assignment</h2>
+  <div class="grid">
+    <div class="card">
+      <span class="tag">Individual · after the course</span>
+      <h3>Exercise collection</h3>
+      <p>The same assignment for everybody: seven independent problems with everyday settings (free throws, help-desk calls, ice cream, restaurant reviews, driving tests, a kitchen scale, a bakery), each with its own small dataset. Most of the code is provided; you fill in the missing pieces. Getting stuck in one problem does not block the others.</p>
+    </div>
+  </div>
+  <div class="table-wrap" style="margin-top:16px">
+    <table>
+      <tr><th>Deadline (Danish time, on Moodle)</th><th>What</th></tr>
+      <tr class="hl"><td><b>13 December 2026, 23:55 · strict</b></td><td><b>Final assignment</b></td></tr>
+    </table>
+  </div>
+  <p class="note">The full assignment and the scoring rubric will be posted here.</p>
+</section>
+
+<section id="absence">
+  <h2>If you must miss a day</h2>
+  <div class="card">
+    <p>You may miss <b>at most one</b> day. Tell the lecturer <b>before</b> the day starts, then submit that day’s in-class exercises and Parts A and B of its extra exercises <b>within a week</b>. The make-up is graded 0–4 and counts as your score for that day. Each day’s make-up page (linked above) has the details.</p>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    Bayesian Statistics for PhD Researchers · Aalborg University · 2026 ·
+    Lecturers: Lu Cheng and Ege Rubak · Contact: <a href="mailto:luch@math.aau.dk">luch@math.aau.dk</a> · Moodle course 2862
+  </div>
+</footer>
+
+</body>
+</html>

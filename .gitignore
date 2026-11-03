@@ -1,0 +1,17 @@
+# System and editor files
+.DS_Store
+.ipynb_checkpoints/
+Rplots.pdf
+.Rhistory
+.RData
+*~
+
+# Students' own timing data, if collected inside this folder
+day-1/collection-exports/
+day-1/data/no_feedback/*.csv
+day-1/data/feedback/*.csv
+
+# Slides are published as PDF only
+*.pptx
+*.key
+*.tex
