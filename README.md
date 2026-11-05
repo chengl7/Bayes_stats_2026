@@ -18,7 +18,7 @@ Course materials for the 5 ECTS PhD course, 9–17 November 2026, 08:45–16:00.
 | Day | Date | Topic | Materials |
 |---|---|---|---|
 | 1 | Mon 9 Nov | R, JupyterLab, probability and uncertainty | [day-1-student-pack.zip](day-1-student-pack.zip) · [day-1/](day-1/README.md) · slides: [morning](day-1/day-1-slides-morning.pdf), [afternoon](day-1/day-1-slides-afternoon.pdf) |
-| 2 | Tue 10 Nov | Bayesian updating and one-parameter models | posted before the day |
+| 2 | Tue 10 Nov | Bayesian updating and one-parameter models | [day-2-student-pack.zip](day-2-student-pack.zip) · [day-2/](day-2/README.md) · slides: [morning](day-2/day-2-slides-morning.pdf), [afternoon](day-2/day-2-slides-afternoon.pdf) · [demos](day-2/demos/README.md) |
 | 3 | Thu 12 Nov | Monte Carlo, MCMC and Stan | posted before the day |
 | 4 | Fri 13 Nov | Joint and hierarchical models | posted before the day |
 | 5 | Mon 16 Nov | Gaussian regression and model checking | posted before the day |
