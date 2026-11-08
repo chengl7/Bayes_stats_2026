@@ -23,7 +23,7 @@ No working installation? The same environment runs in the browser on UCloud: see
 | 2 | Tue 10 Nov | Bayesian updating and one-parameter models | [day-2-student-pack.zip](day-2-student-pack.zip) · [day-2/](day-2/README.md) · slides: [morning](day-2/day-2-slides-morning.pdf), [afternoon](day-2/day-2-slides-afternoon.pdf) · [demos](day-2/demos/README.md) |
 | 3 | Thu 12 Nov | Monte Carlo, MCMC and Stan | [day-3-student-pack.zip](day-3-student-pack.zip) · [day-3/](day-3/README.md) · slides: [morning](day-3/day-3-slides-morning.pdf), [afternoon](day-3/day-3-slides-afternoon.pdf) |
 | 4 | Fri 13 Nov | Joint and hierarchical models | [day-4-student-pack.zip](day-4-student-pack.zip) · [day-4/](day-4/README.md) · slides: [morning](day-4/day-4-slides-morning.pdf), [afternoon](day-4/day-4-slides-afternoon.pdf) · [demos](day-4/demos/README.md) |
-| 5 | Mon 16 Nov | Gaussian regression and model checking | posted before the day |
+| 5 | Mon 16 Nov | Regression: build, fit, predict, check | [day-5-student-pack.zip](day-5-student-pack.zip) · [day-5/](day-5/README.md) · slides: [morning](day-5/day-5-slides-morning.pdf), [afternoon](day-5/day-5-slides-afternoon.pdf) · [demos](day-5/demos/README.md) |
 | 6 | Tue 17 Nov | Logistic regression and the modelling workflow | posted before the day |
 
 - [Grading and attendance](grading.md)
