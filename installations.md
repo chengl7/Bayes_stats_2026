@@ -245,7 +245,8 @@ library(cmdstanr)
 cmdstan_version()
 cmdstan_path()
 
-file <- file.path(cmdstan_path(), "examples", "bernoulli", "bernoulli.stan")
+file <- file.path(tempdir(), "bernoulli.stan")   # copy the example to a folder we can write to
+file.copy(file.path(cmdstan_path(), "examples", "bernoulli", "bernoulli.stan"), file, overwrite = TRUE)
 mod <- cmdstan_model(file)
 fit <- mod$sample(
   data = list(N = 10, y = c(0, 1, 0, 0, 0, 0, 0, 0, 0, 1)),
