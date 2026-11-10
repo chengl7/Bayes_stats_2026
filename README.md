@@ -27,4 +27,5 @@ No working installation? The same environment runs in the browser on UCloud: see
 | 6 | Tue 17 Nov | Logistic regression and the modelling workflow | posted before the day |
 
 - [Grading and attendance](grading.md)
-- Final assignment: an individual exercise collection (the same for everybody). Deadline **13 December 2026, 23:55** (strict). Details will be posted here.
+- [In-class scores by group](in-class-scores.md) (updated after each scored day)
+- Final assignment: an individual exercise collection (the same for everybody). Deadline **13 December 2026, 23:55** (strict). [final-assessment-student-pack.zip](final-assessment-student-pack.zip) · [overview](final-assessment/README.md) · [rubric](final-assessment/rubric.md)

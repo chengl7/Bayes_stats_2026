@@ -70,7 +70,7 @@ Attendance itself is not graded. A missed day without advance notice or without 
 
 ## 3. Final assignment (50 %)
 
-The final assignment is individual and is done after the course. Everybody does the same **exercise collection**: seven independent problems with everyday settings, each with its own small dataset. Most of the code is provided: you fill in the missing pieces of the R code and of the Stan programs, and report the requested results. See [final-assessment/README.md](final-assessment/README.md).
+The final assignment is individual and is done after the course. Everybody does the same **exercise collection**: seven independent problems with everyday settings, each with its own small dataset. In Problems 1–4 most of the code is provided and you fill in the missing pieces of the R code and of the Stan programs; in Problems 5–7 you write the code and the Stan programs yourself, with hints. In every problem you report the requested results. See [final-assessment/README.md](final-assessment/README.md).
 
 It is scored out of **100 points**: **20 points** in each of the five areas of [final-assessment/rubric.md](final-assessment/rubric.md):
 

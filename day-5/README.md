@@ -6,7 +6,7 @@ Bring your laptop with the `bayes` environment working (see the [installation gu
 
 ## Materials
 
-- **Slides:** [morning](day-5-slides-morning.pdf) (regression as a model that generates data; choosing a scale for the predictor; priors and prior predictive simulation; the regression in Stan) and [afternoon](day-5-slides-afternoon.pdf) (reading the fit; the mean versus one new attempt; posterior predictive checks; revising the model; an unusual observation and Student-t errors; always plot).
+- **Slides:** [morning](day-5-slides-morning.pdf) (regression as a model that generates data; choosing a scale for the predictor; priors and prior predictive simulation; the regression in Stan) and [afternoon](day-5-slides-afternoon.pdf) (reading the fit; the mean versus one new attempt; posterior predictive checks; revising the model; an unusual observation and Student-t errors; always plot; from one person to the class: a hierarchical regression with individual lines and a common trend).
 - **Exercise notebooks:** [morning, Exercise A](day-5-exercises-morning.ipynb) and [afternoon, Exercise B](day-5-exercises-afternoon.ipynb). Open them in JupyterLab, select the **R (bayes)** kernel, and run the cells in order. Keep the folders `data/` and `models/` next to the notebooks.
 - **Demos** shown in the lectures, to rerun afterwards: [demos/](demos/README.md). They reproduce the slides' figures; each Stan model compiles the first time (about a minute).
 - **Make-up and extra practice:** [make-up instructions](day-5-makeup.md) and [extra exercises](extra/day-5-extra-exercises.ipynb).
