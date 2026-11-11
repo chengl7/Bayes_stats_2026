@@ -101,6 +101,6 @@ Discussing ideas is encouraged. Submitted solutions, code and reports must be yo
 
 ## 6. Deadline
 
-The final assignment must be uploaded to the Moodle assignment by **13 December 2026 at 23:55** (Danish time). **The deadline is strict:** late submissions are not accepted and the Moodle upload closes at that time. Upload early; a technical problem at 23:50 is not a reason for an extension.
+The final assignment must be uploaded to the Moodle assignment on the course page, as one zip file named `firstname_lastname.zip`, by **13 December 2026 at 23:55** (Danish time). **The deadline is strict:** late submissions are not accepted and the Moodle upload closes at that time. Upload early; a technical problem at 23:50 is not a reason for an extension.
 
 Make-up submissions for a missed day are due as agreed with the lecturer when you report the absence.

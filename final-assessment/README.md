@@ -13,7 +13,7 @@ Everybody does the same assignment: an **exercise collection of seven independen
 | | |
 |---|---|
 | What you do | Problems 1–4: fill in the blanks in the R code and in the Stan templates. Problems 5–7: write the code and the Stan programs yourself, with hints. Run the notebook and report the requested results |
-| What you submit | The notebook with outputs (`.ipynb`), an HTML or PDF export of it, and your completed `.stan` files |
+| What you submit | **one zip file** named **`firstname_lastname.zip`** (for example `anna_jensen.zip`) on the course Moodle page, with the notebook with outputs (`.ipynb`), an HTML or PDF export of it, and your `.stan` files |
 | Software | R with CmdStanR, dplyr and ggplot2 (the `bayes` environment), plus the **loo** package for Problem 3 |
 
 ## The seven problems
@@ -47,7 +47,13 @@ If you get stuck in a part, report what you have and move on: every requested re
 
 Danish time. **The deadline is strict:** late submissions are not accepted, and the Moodle upload closes at 23:55. Upload a version early and replace it later if you improve it.
 
-Upload the completed notebook (`.ipynb`), an HTML or PDF export of it, and a zip with your `.stan` files.
+Submit **one zip file** named **`firstname_lastname.zip`** (for example `anna_jensen.zip`) on the course Moodle page. It contains:
+
+- the completed notebook with outputs (`.ipynb`);
+- an HTML or PDF export of it;
+- all your `.stan` files (the completed templates for Problems 2–4 and your own programs for Problems 5–7).
+
+If you upload a new version, replace the old zip so that only one file is submitted.
 
 ## Missed course days
 

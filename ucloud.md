@@ -42,4 +42,4 @@ New days' materials are added to `bayes-course/materials` during the course; cop
 | A Stan model fails with "Permission denied" | The `.stan` file is in the read-only `bayes-course` drive. Copy it to `bayes-work` and work there. |
 | You cannot see the course project | Open the invitation link on Moodle again, or ask the lecturer. |
 
-Questions: [luch@math.aau.dk](mailto:luch@math.aau.dk).
+Stuck? First paste the error message and what you did into an AI assistant (for example Claude or ChatGPT) and follow its advice. If that does not solve it, write to [luch@math.aau.dk](mailto:luch@math.aau.dk).
