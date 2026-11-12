@@ -158,7 +158,7 @@ R --version
 echo %CMDSTAN%
 ```
 
-The R path should sit inside the `bayes` environment (`envs/bayes`, or `envs\bayes` on Windows). `CMDSTAN` should point at `bin/cmdstan` inside that same environment. That variable is set when you activate the environment. CmdStanR reads it to find CmdStan.
+The R path should sit inside the `bayes` environment (`envs/bayes`, or `envs\bayes` on Windows). `CMDSTAN` should point at CmdStan inside that same environment: `envs/bayes/bin/cmdstan` on macOS and Linux, `envs\bayes\Library\bin\cmdstan` on Windows. That variable is set when you activate the environment. CmdStanR reads it to find CmdStan. **If `echo %CMDSTAN%` prints nothing (or just `%CMDSTAN%`) on Windows, CmdStan is missing: see [Troubleshooting: CmdStan not found](#troubleshooting-cmdstan-not-found) at the end of this guide.**
 
 Leave the environment active for section 4. When you are finished with it later, `conda deactivate` turns it off.
 
@@ -289,3 +289,42 @@ Both paths should contain `miniconda3`, `envs`, and `bayes`. On Windows the sepa
 4. Open the notebook for the day and select the **R (bayes)** kernel.
 
 Packages you install (for example `conda install -c conda-forge r-loo`, needed for the final assignment) are stored in the `bayes` environment.
+
+## Troubleshooting: CmdStan not found
+
+Typical messages: `CmdStan path has not been set yet`, `Unable to find CmdStan`, or `echo %CMDSTAN%` printing nothing. This happens most often on **Windows**. Work through the steps in order; each one fixes a common cause.
+
+**1. Start JupyterLab from the activated environment.** CmdStanR finds CmdStan through the variable `CMDSTAN`, which is set only by `conda activate bayes`. JupyterLab started from the Windows Start menu, from Anaconda Navigator, or from another environment does not have it. Close JupyterLab, open **Anaconda Prompt** (not PowerShell, not the plain Command Prompt), and run:
+
+```bat
+conda activate bayes
+echo %CMDSTAN%
+jupyter lab
+```
+
+`echo %CMDSTAN%` should print a path ending in `envs\bayes\Library\bin\cmdstan`.
+
+**2. Check that the CmdStan package is installed.** In Anaconda Prompt:
+
+```bat
+conda list -n bayes cmdstan
+```
+
+If no `cmdstan` line appears, install it (and then repeat step 1):
+
+```bat
+conda install -n bayes -c conda-forge cmdstan
+```
+
+This is needed if CmdStanR was installed in another way, for example with `install.packages("cmdstanr")` in R or from Anaconda's `defaults` channel. Do not use `install.packages()` or `cmdstanr::install_cmdstan()` in the course environment: everything comes from conda-forge.
+
+**3. If CmdStan is installed but still not found in the notebook,** tell CmdStanR where it is, at the top of the notebook's first cell:
+
+```r
+cmdstanr::set_cmdstan_path(file.path(Sys.getenv("CONDA_PREFIX"), "Library", "bin", "cmdstan"))   # Windows
+cmdstanr::cmdstan_version()
+```
+
+On macOS and Linux the folder is `file.path(Sys.getenv("CONDA_PREFIX"), "bin", "cmdstan")`. If `Sys.getenv("CONDA_PREFIX")` is empty, the notebook was not started from the activated environment: go back to step 1.
+
+**4. Still stuck?** First paste the error message, your operating system and the commands you ran into an AI assistant (for example Claude or ChatGPT) and follow its advice. If that does not solve it, send the same information to [luch@math.aau.dk](mailto:luch@math.aau.dk). Meanwhile, use the course environment on UCloud (see [ucloud.md](ucloud.md)), which needs no installation.
