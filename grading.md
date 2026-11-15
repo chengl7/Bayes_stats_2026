@@ -19,7 +19,7 @@ We expect every student to take an active part in the course:
 - work seriously on the exercises and think about them, rather than waiting for the solution;
 - take part in the group's question set;
 - take part in the peer interviews, both asking and answering;
-- answer questions in the plenary when your group is drawn;
+- answer questions in the plenary when your group is drawn (Days 1–4); from Day 5, explain one of your group's solutions to your partner group;
 - ask questions of your group, of other groups and of the lecturer.
 
 **Getting things right is not what is graded. Effort, thinking and participation are.** A wrong answer that shows real thinking, or a good question about something you do not understand, counts in your favour.
@@ -28,7 +28,7 @@ We expect every student to take an active part in the course:
 
 - At the end of each course day, the lecturer gives **each group a score from 0 to 4** for that day. All present members of the group receive that score.
 - The score is based on what the lecturer and any teaching assistants observe during the exercise sessions and the peer-review sessions, and on the group's question set.
-- Being drawn or not drawn in the plenary does not by itself raise or lower a score.
+- Being drawn or not drawn in the plenary (Days 1–4) does not by itself raise or lower a score.
 - The grading is a **professional judgement and is partly subjective**. The descriptors below make it as consistent and transparent as possible.
 
 | Score | Descriptor (for the group, for that day) |

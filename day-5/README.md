@@ -18,15 +18,15 @@ The exercises use the Day 1 time game without feedback, **all three targets** (5
 | Time | Session |
 |---|---|
 | 08:45–09:45 | Lecture A: regression as a generative model, scales, priors, prior predictive simulation |
-| 09:45–11:10 | Exercise A: one person's attempts against the target, priors and prior predictive simulation, fake data, the Stan program; your group's question set |
-| 11:10–11:55 | Peer review A with your partner group, and plenary |
+| 09:45–11:20 | Exercise A: one person's attempts against the target, priors and prior predictive simulation, fake data, the Stan program; your group's question set |
+| 11:20–11:55 | Peer review A: partner interviews, and each group explains one solution (main idea and logic first, then the code); then the lecturer explains the solution to the challenge A4 |
 | 11:55–12:30 | Lunch |
 | 12:30–13:30 | Lecture B: fit, mean versus new attempt, posterior predictive checks, robust regression |
-| 13:30–15:00 | Exercise B: fit, predict at 20 s, check the spread at each target, revise the model; your group's question set |
-| 15:00–15:45 | Peer review B and plenary |
+| 13:30–15:10 | Exercise B: fit, predict at 20 s, check the spread at each target, revise the model; your group's question set |
+| 15:10–15:45 | Peer review B: partner interviews, and each group explains one solution (main idea and logic first, then the code); then the lecturer explains the solution to the challenge B5 |
 | 15:45–16:00 | Daily diary on Mentimeter |
 
-Everyone is back in the main room at **11:10** and **15:00** for peer review. Partner groups as before: 1 ↔ 2, 3 ↔ 4, 5 ↔ 6, 7 ↔ 8, 9 ↔ 10.
+Everyone is back in the main room at **11:20** and **15:10** for peer review. There is no plenary today. Partner groups as before: 1 ↔ 2, 3 ↔ 4, 5 ↔ 6, 7 ↔ 8, 9 ↔ 10.
 
 ## Extra exercises and make-up
 
