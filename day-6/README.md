@@ -22,11 +22,11 @@ The exercises use the class's own Day 1 time games, without and with feedback (`
 | 11:20–11:55 | Peer review A: partner interviews, and each group explains one solution (main idea and logic first, then the code); then the lecturer explains the solution to A4 |
 | 11:55–12:30 | Lunch |
 | 12:30–13:30 | Lecture B: Simpson's paradox, the modelling workflow, the final assignment |
-| 13:30–15:10 | Exercise B: a pilot study with a paradox; the whole class: does feedback help, and does the model fit?; your group's question set |
-| 15:10–15:45 | Peer review B: partner interviews, and each group explains one solution (main idea and logic first, then the code); then the lecturer explains the solution to the challenge B4 (Monty Hall) |
+| 13:30–15:00 | Exercise B: a pilot study with a paradox; the whole class: does feedback help, and does the model fit?; your group's question set |
+| 15:00–15:45 | Peer review B: partner interviews, and each group explains one solution (main idea and logic first, then the code); then the lecturer explains the solution to the challenge B4 (Monty Hall) |
 | 15:45–16:00 | Daily diary on Mentimeter |
 
-Everyone is back in the main room at **11:20** and **15:10** for peer review. There is no plenary today. Partner groups as before: 1 ↔ 2, 3 ↔ 4, 5 ↔ 6, 7 ↔ 8, 9 ↔ 10.
+Exercise A ends at **11:20**; Peer review A starts with your partner group, and everyone is back in the main room at **11:40** for the solution walkthrough. Exercise B ends at **15:00**; Peer review B starts with your partner group, and everyone is back in the main room at **15:15** for the challenge solution. There is no plenary today. Partner groups today: 1 ↔ 6, 2 ↔ 3, 4 ↔ 7, 5 ↔ 9, 8 ↔ 10.
 
 ## Extra exercises and make-up
 
